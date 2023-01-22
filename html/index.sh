@@ -521,8 +521,8 @@ function getvars() {
 
   ln -s /lib /lib64
 
-  tcrppart="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)3"
-  tcrpdisk="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)"
+  tcrppart="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-4)3"
+  tcrpdisk="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-4)"
   local_cache="/mnt/${tcrppart}/auxfiles"
   GETTIME=$(curl -v --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
   INTERNETDATE=$(date +"%d%m%Y" -d "$GETTIME")
@@ -1224,7 +1224,7 @@ function build() {
 
 function chartinit() {
 
-  tcrppart="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)3"
+  tcrppart="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-4)3"
   freemem=$(free | grep Mem | awk '{print $4/$2*100}')
   usedmem=$(free | grep Mem | awk '{print $3/$2*100}')
   cpuload=$(cat /proc/stat | grep cpu | tail -1 | awk '{print ($5*100)/($2+$3+$4+$5+$6+$7+$8+$9+$10)}' | awk '{print "CPU Usage: " 100-$1}')
