@@ -126,7 +126,7 @@ function pagebody() {
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
               </li>
-              <li><a href="https://github.com/pocopico/tinycore-redpill">Tinycore Redpill Repo</a></li>
+              <li><a href="https://github.com/viperguy07/tinycore-redpill">Tinycore Redpill Repo</a></li>
               <li><a href="https://xpenology.com/forum/topic/53817-redpill-tinycore-loader/">Contact</a></li>
             </ul>
              
@@ -538,7 +538,7 @@ function getvars() {
   RAMDISK_COPY=$(cat ${CONFIGFILES}/$MODEL/$VERSION/config.json | jq -r -e ' .extra .ramdisk_copy')
   SYNOINFO_USER=$(cat $USERCONFIGFILE | jq -r -e ' .synoinfo')
   RD_COMPRESSED=$(cat ${CONFIGFILES}/$MODEL/$VERSION/config.json | jq -r -e ' .extra .compress_rd')
-  redpillextension="https://github.com/pocopico/rp-ext/raw/main/redpill/rpext-index.json"
+  redpillextension="https://github.com/viperguy07/rp-ext/raw/main/redpill/rpext-index.json"
   FILENAME="${OS_ID}.pat"
 
   mount ${tcrppart}
@@ -612,7 +612,7 @@ function downloadextractor() {
   sudo rm -rf ../oldpat.tar.gz
   sudo rm -rf hda1.tgz
 
-  curl --silent --location https://github.com/pocopico/tinycore-redpill/blob/develop/tools/xxd?raw=true --output xxd
+  curl --silent --location https://github.com/viperguy07/tinycore-redpill/blob/develop/tools/xxd?raw=true --output xxd
 
   chmod +x xxd
 
@@ -784,7 +784,7 @@ function downloadtools() {
   [ ! -d ${HOMEPATH}/tools ] && mkdir -p ${HOMEPATH}/tools
   cd ${HOMEPATH}/tools
   for FILE in bspatch bzImage-to-vmlinux.sh calc_run_size.sh crc32 dtc kexec ramdisk-patch.sh vmlinux-to-bzImage.sh xxd zimage-patch.sh kpatch zImage_template.gz; do
-    [ ! -f ${HOMEPATH}/tools/$FILE ] && curl --silent --insecure --location "https://raw.githubusercontent.com/pocopico/tinycore-redpill/develop/tools/${FILE}" -O
+    [ ! -f ${HOMEPATH}/tools/$FILE ] && curl --silent --insecure --location "https://raw.githubusercontent.com/viperguy07/tinycore-redpill/develop/tools/${FILE}" -O
     chmod +x $FILE
   done
 

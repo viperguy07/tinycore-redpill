@@ -1,6 +1,6 @@
 #!/bin/bash
 platform="$1"
-modextension="https://github.com/pocopico/rp-ext/raw/main/rpext-index.json"
+modextension="https://github.com/viperguy07/rp-ext/raw/main/rpext-index.json"
 
 
         MODULE_ALIAS_FILE="modules.alias.4.json"

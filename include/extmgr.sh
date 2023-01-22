@@ -4,7 +4,7 @@ HOMEPATH="/home/tc"
 CONFIGFILES="${HOMEPATH}/redpill-load/config"
 
 function getstaticmodule() {
-        redpillextension="https://github.com/pocopico/rp-ext/raw/main/redpill${redpillmake}/rpext-index.json"
+        redpillextension="https://github.com/viperguy07/rp-ext/raw/main/redpill${redpillmake}/rpext-index.json"
         SYNOMODEL="$(cat /home/tc/payload/platform)"
 
         echo "Removing any old redpill.ko modules"
@@ -292,10 +292,10 @@ function syntaxcheck() {
 
                 case $1 in
                 extadd)
-                        echo "example : $0 extadd https://raw.githubusercontent.com/pocopico/rp-ext/master/vmxnet3/rpext-index.json ds3622xsp_42962"
+                        echo "example : $0 extadd https://raw.githubusercontent.com/viperguy07/rp-ext/master/vmxnet3/rpext-index.json ds3622xsp_42962"
                         ;;
                 extremove)
-                        echo "example : $0 extremove https://raw.githubusercontent.com/pocopico/rp-ext/master/vmxnet3/rpext-index.json ds3622xsp_42962"
+                        echo "example : $0 extremove https://raw.githubusercontent.com/viperguy07/rp-ext/master/vmxnet3/rpext-index.json ds3622xsp_42962"
                         ;;
                 processexts)
                         echo "example : $0 $1 ds3622xsp_42962"
@@ -313,7 +313,7 @@ function syntaxcheck() {
 
 }
 
-# ./newcustom.sh extadd https://raw.githubusercontent.com/pocopico/rp-ext/master/vmxnet3/rpext-index.json ds3622xsp_42951
+# ./newcustom.sh extadd https://raw.githubusercontent.com/viperguy07/rp-ext/master/vmxnet3/rpext-index.json ds3622xsp_42951
 #$1 $2 $3
 
 case $1 in

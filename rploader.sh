@@ -11,15 +11,15 @@ rploaderver="0.9.4.2"
 build="main"
 redpillmake="prod"
 
-rploaderfile="https://raw.githubusercontent.com/pocopico/tinycore-redpill/$build/rploader.sh"
-rploaderrepo="https://github.com/pocopico/tinycore-redpill/raw/$build/"
+rploaderfile="https://raw.githubusercontent.com/viperguy07/tinycore-redpill/$build/rploader.sh"
+rploaderrepo="https://github.com/viperguy07/tinycore-redpill/raw/$build/"
 
-redpillextension="https://github.com/pocopico/rp-ext/raw/main/redpill${redpillmake}/rpext-index.json"
-modextention="https://github.com/pocopico/rp-ext/raw/main/rpext-index.json"
-modalias4="https://raw.githubusercontent.com/pocopico/tinycore-redpill/$build/modules.alias.4.json.gz"
-modalias3="https://raw.githubusercontent.com/pocopico/tinycore-redpill/$build/modules.alias.3.json.gz"
-dtcbin="https://raw.githubusercontent.com/pocopico/tinycore-redpill/$build/tools/dtc"
-dtsfiles="https://raw.githubusercontent.com/pocopico/tinycore-redpill/$build"
+redpillextension="https://github.com/viperguy07/rp-ext/raw/main/redpill${redpillmake}/rpext-index.json"
+modextention="https://github.com/viperguy07/rp-ext/raw/main/rpext-index.json"
+modalias4="https://raw.githubusercontent.com/viperguy07/tinycore-redpill/$build/modules.alias.4.json.gz"
+modalias3="https://raw.githubusercontent.com/viperguy07/tinycore-redpill/$build/modules.alias.3.json.gz"
+dtcbin="https://raw.githubusercontent.com/viperguy07/tinycore-redpill/$build/tools/dtc"
+dtsfiles="https://raw.githubusercontent.com/viperguy07/tinycore-redpill/$build"
 timezone="UTC"
 ntpserver="pool.ntp.org"
 userconfigfile="/home/tc/user_config.json"
@@ -306,7 +306,7 @@ EOF
 
 cd "$(dirname "\${0}")" || exit 1 # get to the script directory realiably in POSIX
 PLATFORM_ID="ds923p_42962"
-EXTENSION_IDS="dtbpatch pocopico.mptspi pocopico.vmxnet3 redpill-boot-wait redpill-misc "
+EXTENSION_IDS="dtbpatch viperguy07.mptspi viperguy07.vmxnet3 redpill-boot-wait redpill-misc "
 
 _load_kmods(){
 
@@ -475,7 +475,7 @@ function syntaxcheck() {
         ext)
             echo "Syntax error, You have to specify one of the existing platforms, the action and the extension URL"
             echo "example:"
-            echo "rploader.sh ext apollolake-7.0.1-42218 add https://raw.githubusercontent.com/pocopico/rp-ext/master/e1000/rpext-index.json"
+            echo "rploader.sh ext apollolake-7.0.1-42218 add https://raw.githubusercontent.com/viperguy07/rp-ext/master/e1000/rpext-index.json"
             echo "or for auto detect use"
             echo "rploader.sh ext apollolake-7.0.1-42218 auto"
             ;;
@@ -1161,7 +1161,7 @@ function postupdatev1() {
 
         echo "bspatch does not exist, bringing over from repo"
 
-        curl --insecure --location "https://raw.githubusercontent.com/pocopico/tinycore-redpill/$build/tools/bspatch" -O
+        curl --insecure --location "https://raw.githubusercontent.com/viperguy07/tinycore-redpill/$build/tools/bspatch" -O
 
         chmod 777 bspatch
         sudo mv bspatch /usr/local/bin/
@@ -1388,7 +1388,7 @@ function downloadextractorv2() {
     sudo rm -rf ../oldpat.tar.gz
     sudo rm -rf hda1.tgz
 
-    curl --insecure --silent --location https://github.com/pocopico/tinycore-redpill/blob/main/tools/xxd?raw=true --output xxd
+    curl --insecure --silent --location https://github.com/viperguy07/tinycore-redpill/blob/main/tools/xxd?raw=true --output xxd
 
     chmod +x xxd
 
@@ -2642,7 +2642,7 @@ mountshare, version, monitor, bringfriend, downloadupgradepat, help
   Valid Options:  add/force_add/info/remove/update/cleanup/auto . Options after platform 
   
   Example: 
-  rploader.sh ext apollolake-7.0.1-42218 add https://raw.githubusercontent.com/pocopico/rp-ext/master/e1000/rpext-index.json
+  rploader.sh ext apollolake-7.0.1-42218 add https://raw.githubusercontent.com/viperguy07/rp-ext/master/e1000/rpext-index.json
   or for auto detect use 
   rploader.sh ext apollolake-7.0.1-42218 auto 
   
@@ -3068,8 +3068,8 @@ function bringoverfriend() {
     echo "Bringing over my friend"
     [ ! -d /home/tc/friend ] && mkdir /home/tc/friend/ && cd /home/tc/friend
 
-    #URLS=$(curl --insecure -s https://api.github.com/repos/pocopico/tcrpfriend/releases/latest | jq -r ".assets[] | select(.name | contains(\"${initrd-friend}\")) | .browser_download_url")
-    URLS=$(curl --insecure -s https://api.github.com/repos/pocopico/tcrpfriend/releases/latest | jq -r ".assets[].browser_download_url")
+    #URLS=$(curl --insecure -s https://api.github.com/repos/viperguy07/tcrpfriend/releases/latest | jq -r ".assets[] | select(.name | contains(\"${initrd-friend}\")) | .browser_download_url")
+    URLS=$(curl --insecure -s https://api.github.com/repos/viperguy07/tcrpfriend/releases/latest | jq -r ".assets[].browser_download_url")
     for file in $URLS; do curl --insecure --location --progress-bar "$file" -O; done
 
     if [ -f bzImage-friend ] && [ -f initrd-friend ] && [ -f chksum ]; then
@@ -3228,7 +3228,7 @@ function getvars() {
 
         echo "bspatch does not exist, bringing over from repo"
 
-        curl --insecure --location "https://raw.githubusercontent.com/pocopico/tinycore-redpill/$build/tools/bspatch" -O
+        curl --insecure --location "https://raw.githubusercontent.com/viperguy07/tinycore-redpill/$build/tools/bspatch" -O
 
         chmod 777 bspatch
         sudo mv bspatch /usr/local/bin/
@@ -3578,7 +3578,7 @@ if [ -z "$GATEWAY_INTERFACE" ]; then
         if [ -f interactive.sh ]; then
             . ./interactive.sh
         else
-            curl --insecure --location --progress-bar "https://github.com/pocopico/tinycore-redpill/raw/$build/interactive.sh" --output interactive.sh
+            curl --insecure --location --progress-bar "https://github.com/viperguy07/tinycore-redpill/raw/$build/interactive.sh" --output interactive.sh
             . ./interactive.sh
             exit 99
         fi
