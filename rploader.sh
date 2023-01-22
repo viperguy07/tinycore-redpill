@@ -2795,7 +2795,8 @@ function getstaticmodule() {
     echo "Looking for redpill for : $SYNOMODEL "
 
     #release=`echo $extension |  jq -r '.releases .${SYNOMODEL}_{$TARGET_REVISION}'`
-    release=$(echo $extension | jq -r -e --arg SYNOMODEL $SYNOMODEL '.releases[$SYNOMODEL]')
+    #release=$(echo $extension | jq -r -e --arg SYNOMODEL $SYNOMODEL '.releases[$SYNOMODEL]')
+    release=$(echo $extension | jq '.releases["$SYNOMODEL"]')
     files=$(curl --insecure -s --location "$release" | jq -r '.files[] .url')
 
     for file in $files; do
